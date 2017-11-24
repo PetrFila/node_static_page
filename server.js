@@ -4,16 +4,16 @@ const routes = require("./routes");
 const app = express();
 
 
-
-app.set("views", path.join(__dirname, "views"));
 app.set('view engine', 'ejs');
+app.set("views", path.join(__dirname, "views"));
+
 
 app.all('/', function (req, res, next) {
   console.log('Accessing the secret section ...');
   next() // pass control to the next handler
 })
 
-app.use("/", routes);
+app.use('/', routes);
 
 
 
